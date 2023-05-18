@@ -1,4 +1,4 @@
-import { CloseIcon, PlusIcon } from "@public/assets/icons";
+import { CloseIcon, NotificationIcon, PlusIcon } from "@public/assets/icons";
 import LiteflixLogo from "@public/assets/logo/LiteflixLogo";
 import Avatar from "@public/assets/images/avatar.webp";
 import Image from "next/image";
@@ -10,8 +10,9 @@ const DrawerHeader = ({ onClose }) => {
       <button className="cursor-pointer" onClick={onClose}>
         <CloseIcon direction="left" />
       </button>
-      <LiteflixLogo />
-      <div className="cursor-pointer">
+      <LiteflixLogo className="lg:hidden" />
+      <div className="cursor-pointer flex items-center gap-x-10">
+        <NotificationIcon className="hidden lg:block" />
         <Image
           src={Avatar}
           alt="User avatar"
@@ -42,7 +43,7 @@ export default function Drawer({ isOpen, setIsOpen }) {
     >
       <section
         className={
-          "w-screen pt-4 px-8  right-0 absolute bg-liteflix-grey h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform " +
+          "w-screen lg:w-5/12 xl:w-1/3 pt-4 px-8 right-0 absolute bg-liteflix-grey h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform " +
           (isOpen ? "translate-x-0" : "translate-x-full")
         }
       >
@@ -86,7 +87,9 @@ export default function Drawer({ isOpen, setIsOpen }) {
           <li className="my-4">
             <button className="flex items-center">
               <PlusIcon />
-              <span className="ml-2 font-medium tracking-[0.25em]">Agregar Película</span>
+              <span className="ml-2 font-medium tracking-[0.25em]">
+                Agregar Película
+              </span>
             </button>
           </li>
           <li>
