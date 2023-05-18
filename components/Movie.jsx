@@ -12,13 +12,13 @@ const Movie = ({ movie }) => {
     >
       <div className="absolute  inset-0 bg-liteflix-grey opacity-30 group-hover:opacity-60"></div>
 
-      <div className="flex flex-col text-center transition-all duration-200 ease-in-out group-hover:text-start group-hover:flex-row p-8 justify-center w-full inset-0 absolute items-center group-hover:mt-10">
-        <ReproduceIcon size="large" className="mb-4 group-hover:hidden" />
+      <div className="flex flex-col text-center transition-all duration-200 ease-in-out group-hover:text-start group-hover:flex-row p-8 justify-center w-full inset-0 absolute items-center group-hover:mt-10 lg:group-hover:-mt-4">
+        <ReproduceIcon size="large" className="mb-4 lg:hidden group-hover:hidden" />
         <ReproduceIcon
           size="small"
-          className="hidden mb-0 group-hover:block"
+          className="hidden mb-0 lg:block group-hover:block"
         />
-        <span className="tracking-[0.25em] text-lg group-hover:text-lg group-hover:w-4/5 group-hover:ml-4">
+        <span className="tracking-[0.25em] text-lg lg:text-base group-hover:text-lg group-hover:w-4/5 group-hover:ml-4 lg:group-hover:w-8/12 lg:group-hover:text-sm">
           {original_title}
         </span>
       </div>
