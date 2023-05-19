@@ -10,6 +10,7 @@ const Dropdown = ({ options, selectedOption, onSelectOption }) => {
 
   const handleSelectOption = (option) => {
     onSelectOption(option);
+    setIsOpen(false);
   };
 
   return (

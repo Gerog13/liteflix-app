@@ -7,7 +7,8 @@ const getRandomFeaturedMovie = async () => {
   }
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`,
+      { next: { revalidate: 60 } }
     );
     if (!response.ok) {
       throw new Error("Failed to fetch [now playing] movie data");
