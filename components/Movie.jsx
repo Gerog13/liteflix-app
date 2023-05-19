@@ -1,5 +1,6 @@
 import { ReproduceIcon, StarIcon } from "@public/assets/icons";
 import React from "react";
+import { motion } from "framer-motion";
 
 const Movie = ({ movie }) => {
   const {
@@ -14,10 +15,17 @@ const Movie = ({ movie }) => {
   const movieBackgroundPath = backdrop_path
     ? `https://image.tmdb.org/t/p/original${backdrop_path}`
     : image;
+
   return (
-    <article
+    <motion.article
       style={{ backgroundImage: `url(${movieBackgroundPath})` }}
       className="w-full sm:w-96 lg:w-full cursor-pointer group h-64 lg:h-40 bg-center bg-cover bg-no-repeat rounded-md relative"
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        opacity: { duration: 0.8, delay: 0.2 },
+        y: { duration: 0.6 },
+      }}
     >
       <div className="absolute  inset-0 bg-liteflix-grey opacity-30 group-hover:opacity-60"></div>
 
@@ -42,7 +50,7 @@ const Movie = ({ movie }) => {
         </div>
         <span>{releaseYear || "-"}</span>
       </div>
-    </article>
+    </motion.article>
   );
 };
 

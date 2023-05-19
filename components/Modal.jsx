@@ -1,25 +1,13 @@
-import { useEffect } from "react";
-import ReactDOM from "react-dom";
+"use client"
 import { useModalContext } from "@context/ModalContext";
 import { CloseIcon } from "@public/assets/icons";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Modal = ({ children }) => {
   const { isModalOpen, closeModal } = useModalContext();
-
-  const modalRoot = document.getElementById("modal-root");
-  const el = document.createElement("div");
-
-  useEffect(() => {
-    modalRoot.appendChild(el);
-    return () => {
-      modalRoot.removeChild(el);
-    };
-  }, [el, modalRoot]);
-
   if (!isModalOpen) return null;
 
-  return ReactDOM.createPortal(
+  return (
     <AnimatePresence>
       {isModalOpen && (
         <motion.div
@@ -44,8 +32,7 @@ const Modal = ({ children }) => {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>,
-    el
+    </AnimatePresence>
   );
 };
 

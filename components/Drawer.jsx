@@ -32,7 +32,7 @@ const DrawerHeader = ({ onClose }) => {
 };
 
 const Drawer = ({ isOpen, setIsOpen }) => {
-  const { isModalOpen, openModal, closeModal } = useModalContext();
+  const { openModal } = useModalContext();
   const handleClose = () => {
     setIsOpen(false);
   };
