@@ -18,7 +18,7 @@ const Hero = ({ nowPlaying }) => {
             <h3 className="text-2xl tracking-widest font-extralight">
               Original de <span className="font-medium">Liteflix</span>
             </h3>
-            <h1 className="text-7xl xl:text-8xl font-bold text-liteflix-green tracking-widest">
+            <h1 className="text-6xl sm:text-7xl xl:text-8xl font-bold text-liteflix-green tracking-widest">
               {nowPlaying?.original_title}
             </h1>
           </div>

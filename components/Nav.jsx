@@ -5,10 +5,14 @@ import { MenuIcon, NotificationIcon, PlusIcon } from "@public/assets/icons";
 import Image from "next/image";
 import Avatar from "@public/assets/images/avatar.webp";
 import Drawer from "./Drawer";
-import Menu from "@public/assets/icons/Menu";
+import { useModalContext } from "@context/ModalContext";
+import Modal from "./Modal";
+import MovieForm from "./MovieForm";
+import Link from "next/link";
 
 const Nav = () => {
   const [toggleSideBar, setToggleSideBar] = useState(false);
+  const { isModalOpen, openModal, closeModal } = useModalContext();
 
   return (
     <nav className="absolute flex justify-between items-center w-full pt-4 px-8 xl:px-16 z-50">
@@ -21,8 +25,9 @@ const Nav = () => {
         </button>
       </div>
       <div className="flex items-center">
-        <LiteflixLogo />
-        <button className="hidden lg:flex lg:ml-14 text-white items-center">
+        <Link href="/"><LiteflixLogo /></Link>
+        
+        <button onClick={openModal} className="hidden lg:flex lg:ml-14 text-white items-center">
           <PlusIcon />
           <span className="ml-2 font-medium tracking-[0.25em]">
             Agregar Película
@@ -49,6 +54,11 @@ const Nav = () => {
         />
       </div>
       <Drawer isOpen={toggleSideBar} setIsOpen={setToggleSideBar} />
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <MovieForm />
+        </Modal>
+      )}
     </nav>
   );
 };

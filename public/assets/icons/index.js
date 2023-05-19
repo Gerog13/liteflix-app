@@ -7,3 +7,4 @@ export { default as CheckIcon } from "./Check";
 export { default as ReproduceIcon } from "./Reproduce";
 export { default as StarIcon } from "./Star";
 export { default as NotificationIcon } from "./Notification";
+export { default as ClipIcon } from "./Clip";

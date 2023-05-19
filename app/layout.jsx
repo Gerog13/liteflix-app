@@ -1,6 +1,8 @@
+"use client"
 import "@styles/globals.css";
 
 import Nav from "@components/Nav";
+import { ModalProvider } from "@context/ModalContext";
 
 export const metadata = {
   title: "Liteflix",
@@ -13,10 +15,13 @@ export const metadata = {
 const RootLayout = ({ children }) => (
   <html lang="en">
     <body className="font-bebas-neue">
-      <main className="relative flex justify-center">
-        <Nav />
-        {children}
-      </main>
+      <ModalProvider>
+        <div id="modal-root"></div>
+        <main className="relative flex justify-center">
+          <Nav />
+          {children}
+        </main>
+      </ModalProvider>
     </body>
   </html>
 );
