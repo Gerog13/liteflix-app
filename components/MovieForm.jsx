@@ -65,7 +65,7 @@ const MyForm = () => {
     <>
       {!isSubmitSuccessful && (
         <form
-          className="h-1/2 sm:h-full w-full uppercase p-10 flex flex-col items-center justify-between"
+          className="h-1/2 gap-y-6 sm:gap-y-0 sm:h-full w-full uppercase p-10 flex flex-col items-center justify-between"
           onSubmit={handleSubmit(onSubmit)}
         >
           <h4 className="text-liteflix-green tracking-[0.25em] text-xl">

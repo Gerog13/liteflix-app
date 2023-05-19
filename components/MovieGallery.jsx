@@ -4,6 +4,7 @@ import Movie from "./Movie";
 import Dropdown from "./Dropdown";
 import useMovieLocalStorage from "@hooks/useMovieLocalStorage ";
 import { useModalContext } from "@context/ModalContext";
+import { motion } from 'framer-motion'
 
 const OPTIONS = {
   POPULARES: "Populares",
@@ -37,13 +38,19 @@ const MovieGallery = ({ popularMovies }) => {
           onSelectOption={handleDropdownChange}
         />
       </div>
-      <div className="w-full flex items-center justify-center flex-wrap lg:flex-nowrap lg:flex-col gap-y-6 md:gap-x-10">
+      <motion.div className="w-full flex items-center justify-center flex-wrap lg:flex-nowrap lg:flex-col gap-y-6 md:gap-x-10"
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { duration: 0.6, delay: 0.1 },
+        }}
+      >
         {moviesList.length > 0 ? (
           moviesList.map((movie) => <Movie key={movie.id} movie={movie} />)
         ) : (
           <AddMovieCard openModal={openModal} />
         )}
-      </div>
+      </motion.div>
     </section>
   );
 };

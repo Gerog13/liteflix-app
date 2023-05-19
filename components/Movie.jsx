@@ -23,11 +23,11 @@ const Movie = ({ movie }) => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
-        opacity: { duration: 0.8, delay: 0.2 },
-        y: { duration: 0.6 },
+        opacity: { duration: 0.7 },
+        y: { duration: 0.7 },
       }}
     >
-      <div className="absolute  inset-0 bg-liteflix-grey opacity-30 group-hover:opacity-60"></div>
+      <div className="absolute  inset-0 bg-liteflix-grey opacity-30 rounded-md group-hover:opacity-60"></div>
 
       <div className="flex flex-col text-center transition-all duration-200 ease-in-out group-hover:text-start group-hover:flex-row p-8 justify-center w-full inset-0 absolute items-center group-hover:mt-10 lg:group-hover:-mt-4">
         <ReproduceIcon
